@@ -3,13 +3,13 @@ module Rails4Autocomplete
     def self.included(target)
       target.extend Rails4Autocomplete::Autocomplete::ClassMethods
 
-      if defined?(Mongoid::Document)
-        target.send :include, Rails4Autocomplete::Orm::Mongoid
-      elsif defined?(MongoMapper::Document)
-        target.send :include, Rails4Autocomplete::Orm::MongoMapper
-      else
+      # if defined?(Mongoid::Document)
+      #   target.send :include, Rails4Autocomplete::Orm::Mongoid
+      # elsif defined?(MongoMapper::Document)
+      #   target.send :include, Rails4Autocomplete::Orm::MongoMapper
+      # else
         target.send :include, Rails4Autocomplete::Orm::ActiveRecord
-      end
+      # end
     end
 
     #
